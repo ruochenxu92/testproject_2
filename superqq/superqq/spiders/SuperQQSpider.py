@@ -37,7 +37,6 @@ class CS499Spider(Spider):
             item = PaperItem()
             item['urllink'] = prefix + sel.xpath('span/a[1]/@href').extract()[0]
             item['pdflink'] = prefix + sel.xpath('span/a[2]/@href').extract()[0]
-            item['date'] = str(datetime.datetime.now())
             item['category'] = response.xpath('//*[@id="dlpage"]/h1/text()').extract()[0]
             seeMore = item['urllink']
             request = scrapy.Request(seeMore, callback=self.parseMovieDetails)
@@ -55,7 +54,13 @@ class CS499Spider(Spider):
         item['title']   = response.xpath('//*[@id="abs"]/div[2]/h1/text()').extract()[0]
         item['subjects'] = response.xpath('//*[@class="primary-subject"]/text()').extract()[0]
         abstract = response.xpath('//*[@id="abs"]/div[2]/blockquote').extract()[0]
-        item['abstract'] = abstract[78:-13] #delete the tag part
+        item['abstract'] = abstract[80:-13] #delete the tag part
+        str1 = (response.xpath('//*[@id="abs"]/div[2]/div[3]/text()').extract()[0])[-12:-1]
+        li = str1.split()
+        li[2] = li[2][2:]
+        str1 = ' '.join(li)
+        temp = datetime.datetime.strptime(str1,'%d %b %y')
+        item['date'] = str(temp.year) + '-' + str(temp.month) + '-' + str(temp.day)
         return item
 
 
