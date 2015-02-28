@@ -9,8 +9,14 @@ import datetime
 import json
 
 
+
+from superqq.utils import utils
+
+tool = utils()
+
+
 def getUrls():
-    path = os.path.abspath('/Users/Xiaomin/testproject copy/superqq/cs499.json')
+    path = os.path.abspath('/Users/Xiaomin/Desktop/testproject/superqq/cs499.json')
     jf = open(path)
     data = json.load(jf)
     urls = []
@@ -54,7 +60,7 @@ class CS499Spider(Spider):
         item['title']   = response.xpath('//*[@id="abs"]/div[2]/h1/text()').extract()[0]
         item['subjects'] = response.xpath('//*[@class="primary-subject"]/text()').extract()[0]
         abstract = response.xpath('//*[@id="abs"]/div[2]/blockquote').extract()[0]
-        item['abstract'] = abstract[80:-13] #delete the tag part
+        item['abstract'] = tool.once_clean(abstract[80:-13])
         str1 = (response.xpath('//*[@id="abs"]/div[2]/div[3]/text()').extract()[0])[-12:-1]
         li = str1.split()
         li[2] = li[2][2:]
