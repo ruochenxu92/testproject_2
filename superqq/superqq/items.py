@@ -12,9 +12,16 @@ class WikiItem(scrapy.Item):
     name = Field()
     value = Field()
 
-from task.models import cs499Item
+from task.models import cs499Item, Scholar, Faculty
 from scrapy.contrib.djangoitem import DjangoItem
 
 class PaperItem(DjangoItem):
     django_model = cs499Item
+
+class ScholarItem(DjangoItem):
+    django_model = Scholar
+
+
+class FacultyItem(DjangoItem):
+    django_model = Faculty
 

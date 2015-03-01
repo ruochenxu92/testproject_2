@@ -51,9 +51,6 @@ class Article(models.Model):
     status = StatusField()
 '''
 
-#
-#
-#
 # class Field(models.Model):
 #     name = models.CharField(max_length=80)
 #
@@ -103,7 +100,6 @@ class Article(models.Model):
 # # f = Field.objects.filter(pk=1)[0]
 # # i = Interest.objects.filter(pk=1)[0]
 # # author = Author(name='Manoj Prabhakaran',institutions='Computer Science, University of Illinois Urbana-Champaign',field=f,authorUrl='http://web.engr.illinois.edu/~mmp/')
-#
 
 
 class Page(models.Model):
@@ -125,43 +121,54 @@ class Page(models.Model):
         ordering = ('author',)
 
 
-
 class cs499Item(models.Model):
-    urllink = models.CharField(max_length=80,blank=True, null=True)
-    pdflink = models.CharField(max_length=80,blank=True, null=True)
-    title = models.CharField(max_length=80,null = True,blank=True)
-    authors = models.CharField(max_length=80,null = True,blank=True)
-    subjects = models.CharField(max_length=80,null=True, blank=True)
-    abstract = models.TextField()
+    urllink = models.CharField(max_length=80,  default='')
+    pdflink = models.CharField(max_length=80,  default='')
+    title = models.CharField(max_length=80,    default='')
+    authors = models.CharField(max_length=80,  default='')
+    subjects = models.CharField(max_length=80, default='')
+    abstract = models.TextField(default='')
     date = models.DateTimeField(blank=True, null=True)# auto_now=False, auto_now_add=False
-    category = models.CharField(max_length=200, null = True,blank=True)
+    category = models.CharField(max_length=200, default='')
     likes = models.IntegerField(default=0)
-
 
     def __unicode__(self):
         return smart_unicode(self.title)
 
-
     def get_absolute_url(self):
         return '/get/%i/' % self.id
-
 
     class Meta:
         ordering = ('date',)
 
 
+class Scholar(models.Model):
+    name = models.CharField(max_length=80)
+    institutions = models.CharField(max_length=80,null=True, blank=True)
+    paper_title = models.CharField(max_length=255)
+    field = models.CharField(max_length=200, default='Computer Science')
+    interest = models.CharField(max_length=100)
+    author_url = models.CharField(max_length=200,default='')
+    pub_date = models.CharField(max_length=4)
 
-# import os
-# path = os.path.abspath('/Users/Xiaomin/testproject/tutorial/cs499.json')
-#
-# json_data = open(path)
-#
-# import json
-#
-# data = json.load(json_data)
-#
-#
-#
-# for cs499 in data:
-#      entry = cs499Item(urllink=cs499['urllink'],pdflink=cs499['pdflink'],title=cs499['title'],authors=cs499['authors'],subjects=cs499['subjects'],abstract=cs499['abstract'],date=cs499['date'],category=cs499['category'])
-#      entry.save()
+    cite = models.ForeignKey(cs499Item, blank=True, null=True)
+
+    def __unicode__(self):
+        return smart_unicode(self.name)
+
+    class Meta:
+        ordering = ('field',)
+
+class Faculty(models.Model):
+    name = models.CharField(max_length=80, default='')
+    phone = models.CharField(max_length=20, default='')
+    email = models.EmailField(default='')
+
+    field = models.CharField(max_length=200, default='Computer Science')
+    institution = models.CharField(max_length=100, default='University of Illinios at Urbana-Champaign')
+
+    def __unicode__(self):
+        return smart_unicode(self.name)
+
+    class Meta:
+        ordering = ('field',)

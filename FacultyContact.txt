@@ -1,0 +1,355 @@
+Tarek F. Abdelzaher
+Willett Faculty Scholar and Professor
+4126 Siebel Center for Comp Sci
+(217) 265-6793
+zaher@illinois.edu
+
+Sarita V. Adve
+Professor
+4104 Siebel Center for Comp Sci
+(217) 333-8461
+sadve@illinois.edu
+
+Vikram Adve
+Professor
+4235 Siebel Center for Comp Sci
+(217) 244-2016
+vadve@illinois.edu
+
+Gul Agha
+Professor
+2104 Siebel Center for Comp Sci
+(217) 244-3087
+agha@illinois.edu
+
+Brian P. Bailey
+Associate Professor
+3108 Siebel Center for Comp Sci
+(217) 333-6106
+bpbailey@illinois.edu
+
+Marco Caccamo
+Professor
+4118 Siebel Center for Comp Sci
+(217) 244-0528
+mcaccamo@illinois.edu
+
+Matthew Caesar
+Associate Professor
+3118 Siebel Center for Comp Sci
+(847) 323-2968
+caesar@illinois.edu
+
+Roy H. Campbell
+Sohaib and Sara Abbasi Professor
+3122 Siebel Center for Comp Sci
+(217) 333-0215
+rhc@illinois.edu
+
+Kevin C. Chang
+Associate Professor
+2134 Siebel Center for Comp Sci
+(217) 244-2919
+kcchang@illinois.edu
+
+Chandra Sekhar Chekuri
+Professor
+3228 Siebel Center for Comp Sci
+(217) 265-0705
+chekuri@illinois.edu
+
+Jerry DeJong DeJong, II
+Professor
+3320 Siebel Center for Comp Sci
+(217) 333-0491
+mrebl@illinois.edu
+
+Jeff Erickson
+Professor
+3304 Siebel Center for Comp Sci
+(217) 333-6769
+jeffe@illinois.edu
+
+Paul Fischer
+Professor
+4320 Siebel Center for Comp Sci
+(217) 300-2031
+fischerp@illinois.edu
+
+Margaret M. Fleck
+Research Associate Professor
+3214 Siebel Center for Comp Sci
+(217) 265-6838
+mfleck@illinois.edu
+
+David Alexander Forsyth
+Professor
+3310 Siebel Center for Comp Sci
+(217) 265-6851
+daf@illinois.edu
+
+Wai-Tat Fu
+Associate Professor
+3216 Siebel Center for Comp Sci
+(217) 333-8183
+wfu@illinois.edu
+
+Maria Jesus Garzaran
+Research Associate Professor
+4308 Siebel Center for Comp Sci
+(217) 244-8878
+garzaran@illinois.edu
+
+P. Brighten Godfrey
+Assistant Professor
+3211 Siebel Center for Comp Sci
+pbg@illinois.edu
+
+William D. Gropp
+Thomas M. Siebel Chair in Computer Science
+4314 Siebel Center for Comp Sci
+(217) 244-6720
+wgropp@illinois.edu
+
+Carl A. Gunter
+Professor
+4304 Siebel Center for Comp Sci
+(217) 244-1982
+cgunter@illinois.edu
+
+Elsa L. Gunter
+Research Associate Professor
+2112 Siebel Center for Comp Sci
+(217) 265-6118
+egunter@illinois.edu
+
+Indranil Gupta
+Associate Professor
+3112 Siebel Center for Comp Sci
+(217) 265-5517
+indy@illinois.edu
+
+Jiawei Han
+Abel Bliss Professor of Engineering
+2132 Siebel Center for Comp Sci
+(217) 333-6903
+hanj@illinois.edu
+
+Sariel Har-Peled
+Professor
+3306 Siebel Center for Comp Sci
+(217) 333-4219
+sariel@illinois.edu
+
+John C. Hart
+Professor
+3227 Siebel Center for Comp Sci
+(217) 333-8740
+jch@illinois.edu
+
+Julia Constanze Hockenmaier
+Associate Professor
+3324 Siebel Center for Comp Sci
+(217) 265-6855
+juliahmr@illinois.edu
+
+Derek W. Hoiem
+Assistant Professor
+3312 Siebel Center for Comp Sci
+(217) 333-0806
+dhoiem@illinois.edu
+
+Sheldon Howard Jacobson
+Professor
+3224 Siebel Center for Comp Sci
+(217) 244-7275
+shj@illinois.edu
+
+Laxmikant V. Kale
+Professor
+4212 Siebel Center for Comp Sci
+(217) 244-0094
+kale@illinois.edu
+
+Karrie G. Karahalios
+Associate Professor
+3110 Siebel Center for Comp Sci
+(217) 265-6841
+kkarahal@illinois.edu
+
+Alex Kirlik
+Professor
+3220 Siebel Center for Comp Sci
+(217) 244-8972
+kirlik@illinois.edu
+
+Andreas Kloeckner
+Assistant Professor
+4318 Siebel Center for Comp Sci
++1-217-244-6401
+andreask@illinois.edu
+
+Alexandra Kolla
+Assistant Professor
+3222 Siebel Center for Comp Sci
+(217) 333-5821
+akolla@illinois.edu
+
+William T. Kramer
+Research Professor
+4122 E Nat Center for Suprcomp Appl
+(217) 333-6260
+wtkramer@illinois.edu
+
+Robin H. Kravets
+Associate Professor
+3114 Siebel Center for Comp Sci
+(217) 244-6026
+rhk@illinois.edu
+
+Ranjitha Kumar
+Assistant Professor
+3116 Siebel Center for Comp Sci
+ranjitha@illinois.edu
+
+Steven M. LaValle
+Professor
+3318 Siebel Center for Comp Sci
+(217) 265-6313
+lavalle@illinois.edu
+
+Svetlana Lazebnik
+Associate Professor
+3308 Siebel Center for Comp Sci
+(217) 265-6768
+slazebni@illinois.edu
+
+Darko Marinov
+Associate Professor
+4233 Siebel Center for Comp Sci
+(217) 265-6117
+marinov@illinois.edu
+
+Jose Meseguer
+Professor
+2108 Siebel Center for Comp Sci
+(217) 333-6733
+meseguer@illinois.edu
+
+Klara Nahrstedt
+Professor
+3104 Siebel Center for Comp Sci
+(217) 244-6624
+klara@illinois.edu
+
+Luke Olson
+Associate Professor
+4312 Siebel Center for Comp Sci
+(217) 244-8422
+lukeo@illinois.edu
+
+David A. Padua
+Donald Biggar Willett Professor
+4227 Siebel Center for Comp Sci
+(217) 333-4223
+padua@illinois.edu
+
+Aditya G. Parameswaran
+Assistant Professor
+2114 Siebel Center for Comp Sci
+adityagp@illinois.edu
+
+Madhusudan Parthasarathy
+Associate Professor
+3226 Siebel Center for Comp Sci
+(217) 244-1323
+madhu@illinois.edu
+
+Leonard B. Pitt
+Professor
+1210 Siebel Center for Comp Sci
+(217) 333-7505
+pitt@illinois.edu
+
+Manoj M. Prabhakaran
+Associate Professor
+4310 Siebel Center for Comp Sci
+(217) 244-4020
+mmp@illinois.edu
+
+Grigore Rosu
+Professor
+2110 Siebel Center for Comp Sci
+(217) 244-7431
+grosu@illinois.edu
+
+Dan Roth
+Professor
+3322 Siebel Center for Comp Sci
+(217) 244-7068
+danr@illinois.edu
+
+Rob A. Rutenbar
+Abel Bliss Professor
+2232 Siebel Center for Comp Sci
+(217) 333-3373
+rutenbar@illinois.edu
+
+Lui Sha
+Professor, Donald B. Gillies Chair
+4122 Siebel Center for Comp Sci
+(217) 244-1887
+lrs@illinois.edu
+
+Saurabh Sinha
+Associate Professor
+2122 Siebel Center for Comp Sci
+(217) 333-3233
+sinhas@illinois.edu
+
+Paris Smaragdis
+Assistant Professor
+3231 Siebel Center for Comp Sci
+(217) 265-6893
+paris@illinois.edu
+
+Marc Snir
+Michael Faiman and Saburo Muroga Professor
+4232 Siebel Center for Comp Sci
+(217) 244-6568
+snir@illinois.edu
+
+Hari Sundaram
+Associate Professor
+2126 Siebel Center for Comp Sci
+(217) 300-4878
+hs1@illinois.edu
+
+Josep Torrellas
+Professor and Willett Faculty Scholar
+4231 Siebel Center for Comp Sci
+(217) 244-4148
+torrella@illinois.edu
+
+Mahesh Viswanathan
+Associate Professor
+3232 Siebel Center for Comp Sci
+(217) 265-6591
+vmahesh@illinois.edu
+
+Tandy Warnow
+Founder Professor of Bioengineering and Computer Science
+3235 Siebel Center for Comp Sci
+warnow@illinois.edu
+
+Tao Xie
+Associate Professor
+4237 Siebel Center for Comp Sci
+(217) 244-5931
+taoxie@illinois.edu
+
+Chengxiang Zhai
+Professor
+2116 Siebel Center for Comp Sci
+(217) 244-4943
+czhai@illinois.edu

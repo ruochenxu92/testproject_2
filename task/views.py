@@ -9,7 +9,7 @@ from django.contrib import auth
 from .forms import ContactForm, MyRegistrationForm, ArticleForm
 from .models import Article
 from django.contrib import messages
-import time
+import time, os
 from django.conf import settings
 from django.core.mail import send_mail,send_mass_mail
 
@@ -137,11 +137,8 @@ def register_user(request):
         args['form'] = form
         return render_to_response('register.html', args)
 
-
 def register_success(request):
     return render_to_response('register_success.html')
-
-
 
 def create(request):
     if request.POST:
@@ -157,12 +154,6 @@ def create(request):
         args['form'] = form
         return render_to_response('create_article.html', args)
 
-
-
-
-
-
-
 def like_article(request, article_id):
     if article_id:
         a = cs499Item.objects.get(id=article_id)
@@ -173,19 +164,55 @@ def like_article(request, article_id):
 
 
 
+'''
+read stopswords return a set
+'''
+def readstopwords():
+    stopwords = set()
+    path = os.path.abspath('/Users/Xiaomin/Desktop/testproject/task/stopwords.txt')
+    data = open(path, 'r')
+    while True:
+        str = data.readline()
+        if (len(str) > 0):
+            stopwords.add(str)
+        else:
+            break
+    return stopwords
 
 
 
 '''
-TODO make recommendations for all people base the requirements
+TODO recommendations algorithm
 '''
-def getcs499Item():
-    field = 'Information Theory'
-    result = cs499Item.objects.filter(category__icontains=field)
-    return result
+def getcs499Items():
+    from haystack.query import SearchQuerySet
+    from haystack.inputs import AltParser
+    query = 'A study of smoothing methods for language models applied to ad hoc information retrieval'
+
+    min_score = 0.5
+    stopwords = readstopwords()
+
+    words = query.split()
+    clean_query = []
+    for word in words:
+        if word in stopwords:
+            pass
+        else:
+            clean_query.append(word)
+
+    str_query = ' '.join(clean_query)
+    altsqs = SearchQuerySet().filter(content=AltParser('dismax', str_query, qf='qf=title^20.0 authors^2 abstract^2', mm=1))
+    rs = []
+    for item in altsqs:
+        if item.score > min_score:
+            rs.append(item)
+    return rs
 
 
 
+    # field = 'Information Theory'
+    # result = cs499Item.objects.filter(category__icontains=field)
+    # return result
 
     # from haystack.views import SearchView
     # sv = SearchView()
@@ -218,26 +245,28 @@ def getRecommendation():
     return ['xxu46@illinois.edu']
 
 def send_email(request):
-        items = getcs499Item()
-        subject = ''
+        items = getcs499Items()
+        subject = 'no subject'
         messages =''
         i = 1
 
         for item in items:
-
             paper = 'Here is the ' + str(i) + ' paper\n\n'
             paper += 'This is link for detail information '+ str(item.urllink) + '\n'
             paper += 'The pdf link is here '+str(item.pdflink)+'\n'
             paper += 'The title:' + str(item.title) + '\n'
-            #safe_str = str(item.authors).encode('ascii', 'ignore')
-            #paper += 'The authors: ' +   str(item.authors) + '\n'
+            safe_str = str(item.authors).encode('ascii', 'ignore')
+            paper += 'The authors: ' +  str(item.authors) + '\n'
             paper += 'The subject: ' + str(item.subjects) + '\n'
             paper += 'The abstract:\n '+ str(item.abstract)+ '\n'
             paper += 'The date: ' + str(item.date) + '\n\n\n\n\n\n'
             messages += paper
-            subject = 'recommendation for recent paper from ' + str(item.category) + 'field'
+            #subject = 'recommendation for recent paper from ' #+ str(item.category) + 'field'
             i += 1
-        send_mail(subject, messages, settings.EMAIL_HOST_USER, getRecommendation, fail_silently=False)
+
+        send_mail(subject, messages, settings.EMAIL_HOST_USER,  ['xxu46@illinois.edu'], fail_silently=False)
+
+        #send_mail(subject, messages, settings.EMAIL_HOST_USER, getRecommendation, fail_silently=False)
         #
         # connection = SMTPConnection(username=auth_user, password=auth_password, fail_silently=fail_silently)
         # email = EmailMessage(subject, message, from_email, recipient_list, connection=connection, encoding='utf8').send()
@@ -250,18 +279,11 @@ def send_email(request):
 
 
 
-
-
 def autoGenerateQueries():
     pass
 
 def GetEmailList():
     pass
-
-
-
-
-
 
 from datetime import date
 from haystack.views import SearchView
@@ -300,7 +322,7 @@ class MySearchView(SearchView):
         results =  self.form.search()
         print("results",len(results))
 
-        items = getcs499Item()
+        items = getcs499Items()
         subject = ''
         messages =''
         i = 1

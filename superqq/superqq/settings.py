@@ -16,7 +16,7 @@ NEWSPIDER_MODULE = 'superqq.spiders'
 #USER_AGENT = 'superqq (+http://www.yourdomain.com)'
 
 ITEM_PIPELINES = {
-    'superqq.pipelines.JsonWriterPipeline': 2,
+    #'superqq.pipelines.JsonWriterPipeline': 2,
     'superqq.pipelines.SuperqqPipeline': 1,
 }
 
@@ -27,7 +27,7 @@ import os
 os.environ['DJANGO_SETTINGS_MODULE'] = 'testproject.settings'
 
 
-DOWNLOAD_DELAY = 0.1
+DOWNLOAD_DELAY = 1
 
 
 import os

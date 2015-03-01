@@ -48,13 +48,28 @@ from task.models import cs499Item
 #         return self.get_model().objects.all()
 
 class cs499itemIndex(indexes.SearchIndex, indexes.Indexable):
-    text = indexes.CharField(document=True, use_template=True)
+    text = indexes.NgramField(document=True, use_template=True)
     title = indexes.CharField(model_attr='title')
-    authors = indexes.CharField(model_attr='authors')
-    abstract = indexes.EdgeNgramField(model_attr='abstract')
+    authors = indexes.NgramField(model_attr='authors')
+    abstract = indexes.NgramField(model_attr='abstract')
+    subjects = indexes.NgramField(model_attr='subjects')
+    category = indexes.CharField(model_attr='category')
+    date = indexes.DateTimeField(model_attr='date')
+    likes = indexes.IntegerField(model_attr='likes', indexed=False)
+    urllink = indexes.CharField(model_attr='urllink', indexed=False)
+    pdflink = indexes.CharField(model_attr='pdflink', indexed=False)
+
 
     def get_model(self):
         return cs499Item
 
     def index_queryset(self, using=None):
         return self.get_model().objects.all()
+
+    # def prepare_feed_text(self, obj):
+    #     return "Feed"
+    #
+    # def prepare(self, obj):
+    #     data = super(cs499itemIndex, self).prepare(obj)
+    #     data['boost'] = 1.5
+    #     return data
