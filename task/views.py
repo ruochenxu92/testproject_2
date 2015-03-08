@@ -77,9 +77,10 @@ def cs499item(request, article_id = 1):
 
 
 def his101paper(requeset):
-    return render_to_response('index.html')
+    return render_to_response('task/base.html')
 
-
+def joanofarc(requeset):
+    return render_to_response('task/joanofarc.html')
 
 def search_titles1(request):
     if request.method == 'POST':
