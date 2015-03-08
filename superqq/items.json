@@ -1,1 +1,9 @@
-[
+{
+"url" : "http://www.reddit.com/r/IAmA/comments/2nxwkb/",
+"title" : "CERN Engineer AmA",
+"body" : "A few days ago, CERN launched an Open Data Portal to publicly share data from the Large Hadron Collider. We are some of the scientists behind this\
+project, working to make science more open globally. Ask Us (Almost)\
+Anything about open data, open access, data preservation, big data and open science!",
+"categories": [ "programming", "research" ]
+}
+

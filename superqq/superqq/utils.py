@@ -1,7 +1,5 @@
 __author__ = 'Xiaomin'
 
-
-
 class utils:
     def __init__(self):
         pass
@@ -12,7 +10,6 @@ class utils:
         sol = self.remove_pair(sol, '<','>')
         sol = self.filter_str(sol, '\\')
         return ' '.join(sol.split())
-
 
 
     def remove(self, my, tag):

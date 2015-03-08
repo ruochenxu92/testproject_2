@@ -150,7 +150,6 @@ class Scholar(models.Model):
     interest = models.CharField(max_length=100)
     author_url = models.CharField(max_length=200,default='')
     pub_date = models.CharField(max_length=4)
-
     cite = models.ForeignKey(cs499Item, blank=True, null=True)
 
     def __unicode__(self):
@@ -172,3 +171,4 @@ class Faculty(models.Model):
 
     class Meta:
         ordering = ('field',)
+

@@ -12,7 +12,7 @@ urlpatterns = patterns('',
     url(r'^tasksCreate/$', views.TaskCreate.as_view()),
     url(r'^tasksContact/$', views.ContactView.as_view()),
     (r'^descriptions/([\w-]+)/$', views.ListDescriptionView.as_view()),
-    (r'^$', include('haystack.urls')),
+    (r'^$','task.views.his101paper' ),
     url(r'^mysearchview/$', MySearchView(), name='search_view'),
 
     url(r'^accounts/register/$', 'task.views.register_user'),
@@ -23,9 +23,30 @@ urlpatterns = patterns('',
     url(r'^accounts/loggedin/$', 'task.views.loggedin'),
     url(r'^accounts/invalid/$', 'task.views.invalid_login'),
     url(r'^all/$', views.ListArticles.as_view()),
+    url(r'^his101paper/$', 'task.views.his101paper'),
     url(r'^create/$', 'task.views.create'),
     url(r'^get/(?P<article_id>\d+)/$', 'task.views.cs499item'),
     url(r'^send_email/$', 'task.views.send_email'),
     url(r'^like/(?P<article_id>\d+)/$', 'task.views.like_article'),
 )
 
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
+# ... the rest of your URLconf here ...
+
+urlpatterns += staticfiles_urlpatterns()
+
+
+
+
+from django.conf import settings
+from django.conf.urls.static import static
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL,
+                          document_root=settings.STATIC_ROOT)
+#
+# from django.conf import settings
+# from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+# from django.conf.urls.static import static
+# urlpatterns += staticfiles_urlpatterns()
+# #urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

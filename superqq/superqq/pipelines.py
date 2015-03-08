@@ -8,12 +8,15 @@
 from task.models import cs499Item, Scholar
 class SuperqqPipeline(object):
     def process_item(self, item, spider):
+        print(item.__class__.__name__)
+
         if item.__class__.__name__ == 'ScholarItem':
             if len(Scholar.objects.filter(name=item['name'])) == 0:
                 item.save()
             return item
 
-        elif item.__class__.__name__ == 'cs499Item':
+        elif item.__class__.__name__ == 'PaperItem':
+
             if len(cs499Item.objects.filter(title=item['title'])) == 0:
                 item.save()
             return item
