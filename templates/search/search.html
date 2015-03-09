@@ -7,9 +7,16 @@
 
 {% load highlight %}
 {% block content %}
-    <h2>&nbsp;  Search My Paper</h2>
+    <div id="event-1507" class="panel panel-default relate-calendar-event">
+      <div class="panel-heading">
+              <b>Search My Paper</b>
 
-               <form method="get" action="."    class="navbar-form" role="search">
+        </div>
+        <div class="panel-body">
+
+
+
+            <form method="get" action="."    class="navbar-form" role="search">
 
 
                     <div class="input-group">
@@ -49,5 +56,10 @@
         {% else %}
             {# Show some example queries to run, maybe query syntax, something else? #}
         {% endif %}
+
     </form>
+        </div>
+
+    </div>
+
 {% endblock %}

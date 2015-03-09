@@ -75,12 +75,14 @@ def cs499item(request, article_id = 1):
     return render_to_response('cs499item.html', {'article': cs499Item.objects.get(id=article_id)})
 
 
+def testvideo(requeset):
+    return render_to_response('task/testvideo.html')
 
 def index(requeset):
     return render_to_response('task/index.html')
 
 def joanofarc(requeset):
-    return render_to_response('task/joanofarc.html')
+    return render_to_response('task/HIS101/joanofarc.html', {'articles': Article.objects.all()})
 
 
 def team(requeset):
@@ -171,6 +173,13 @@ def like_article(request, article_id):
         a.likes += 1
         a.save()
     return HttpResponseRedirect('../../get/%s' % article_id)
+
+def like_article_his101(request, article_id):
+    if article_id:
+        a = Article.objects.get(id=article_id)
+        a.likes += 1
+        a.save()
+    return HttpResponseRedirect('../../getarticle/%s' % article_id)
 
 
 

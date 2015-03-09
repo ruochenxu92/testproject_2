@@ -13,15 +13,12 @@ urlpatterns = patterns('',
     url(r'^tasksContact/$', views.ContactView.as_view()),
     (r'^descriptions/([\w-]+)/$', views.ListDescriptionView.as_view()),
     (r'^$','task.views.index' ),
-
     (r'^search/', include('haystack.urls')),
-
     (r'^joanofarc/$','task.views.joanofarc' ),
     (r'^team/$','task.views.team' ),
-
-
     url(r'^mysearchview/$', MySearchView(), name='search_view'),
     url(r'^accounts/register/$', 'task.views.register_user'),
+    url(r'^video/$', 'task.views.testvideo'),
     url(r'^accounts/register_success/$', 'task.views.register_success'),
     url(r'^accounts/login/$', 'task.views.login'),
     url(r'^accounts/auth/$', 'task.views.auth_view'),
@@ -35,6 +32,7 @@ urlpatterns = patterns('',
     url(r'^getarticle/(?P<article_id>\d+)/$', 'task.views.article'),
     url(r'^send_email/$', 'task.views.send_email'),
     url(r'^like/(?P<article_id>\d+)/$', 'task.views.like_article'),
+    url(r'^likearticle/(?P<article_id>\d+)/$', 'task.views.like_article_his101'),
 )
 
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns

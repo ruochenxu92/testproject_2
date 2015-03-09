@@ -1,30 +1,63 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <style >
+body {
+  height: 100%;
+  background-color: #333;
+}
+
+font {
+
+}
+
+p {
+    font-size: 20px
+}
+
+
+
+{#body {#}
+{#  color: #fff;#}
+{#  text-align: center;#}
+{#  text-shadow: 0 1px 3px rgba(0,0,0,.5);#}
+
+    </style>
+
+    <div id="event-1507" class="panel panel-default relate-calendar-event">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-md-10">
+                                      <b> {{ article.title }}</b>
+
+                </div>
+                <div class="col-md-2">
+                                <a href="/joanofarc" role="button" class="btn btn-success">Go Back to Home Page</a>
+
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="panel-body">
+            <p>
+                {{ article.body }}
+            </p>
+
+            <p><em>Do you like it?</em></p>
+            <ul>
+                <li><p>{{ article.likes }} Likes</p></li>
+                <li><p><a href="/likearticle/{{ article.id }}">Like</a></p></li>
+
+            </ul>
+        </div>
 
 
 
 
-    <h1>{{ article.title }}</h1>
-    <p>{{ article.body }}</p>
-    <p>{{ article.likes }} Likes</p>
-    <p><a href="/like/{{ article.id }}">Like</a></p>
 
 
 
-
-<h3>Search</h3>
-{% csrf_token %}
-    <input type="text" id="search" name="search"/>
-    <ul id="search-results">
-
-
-    </ul>
-
-
-</body>
-</html>
+{% endblock %}

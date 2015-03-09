@@ -1,0 +1,50 @@
+
+<!doctype html>
+<html lang=en>
+<head>
+<title>FullScreen HTML5 Video In Pure CSS - demosthenes.info</title>
+<script type="text/javascript">
+//<![CDATA[
+try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:0,byc:0,owlid:"cf",bag2:1,mirage2:0,oracle:0,paths:{cloudflare:"/cdn-cgi/nexp/dok3v=1613a3a185/"},atok:"14ee4de5c654bd22863d33d0518a1205",petok:"d2ccd504f9ed8800ef3cd664f5b6d80ed9c9e162-1425872545-1800",zone:"demosthenes.info",rocket:"0",apps:{"ga_key":{"ua":"UA-9896842-1","ga_bs":"2"}}}];!function(a,b){a=document.createElement("script"),b=document.getElementsByTagName("script")[0],a.async=!0,a.src="//ajax.cloudflare.com/cdn-cgi/nexp/dok3v=919620257c/cloudflare.min.js",b.parentNode.insertBefore(a,b)}()}}catch(e){};
+//]]>
+</script>
+<link href="//cloud.webtype.com/css/094b1fa9-6433-4dce-966d-931c186185d8.css" rel="stylesheet" type="text/css"/>
+<style>body{margin:0;background:#000}video{position:fixed;right:0;bottom:0;min-width:100%;min-height:100%;width:auto;height:auto;z-index:-100;background:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/polina.jpg) no-repeat;background-size:cover;-webkit-transition:1s opacity;transition:1s opacity}div{font-family:Agenda-Light,Agenda\ Light,Agenda,Arial\ Narrow,sans-serif;font-weight:100;background:rgba(0,0,0,.3);color:#fff;padding:2rem;width:33%;margin:2rem;float:right;font-size:1.2rem}h1{font-size:3rem;text-transform:uppercase;margin-top:0;letter-spacing:.3rem}a{display:inline-block;color:#fff;text-decoration:none;background:rgba(0,0,0,.5);padding:.5rem;-webkit-transition:.6s background;transition:.6s background}a:hover{background:rgba(0,0,0,.9)}.stopfade{opacity:.5}#polina button{display:block;width:80%;padding:.4rem;border:none;margin:1rem auto;font-size:1.3rem;background:rgba(255,255,255,.23);color:#fff;border-radius:3px;cursor:pointer;-webkit-transition:.3s background;transition:.3s background}#polina button:hover{background:rgba(0,0,0,.5)}@media screen and (max-width:500px){div{width:70%}}@media all and (max-device-width:800px){body{background:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/polina.jpg) #000 no-repeat center center fixed;background-size:cover}#bgvid,#polina button{display:none}div{width:70%}}</style>
+<meta charset=utf-8>
+<script type="text/javascript">
+/* <![CDATA[ */
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-9896842-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+(function(b){(function(a){"__CF"in b&&"DJS"in b.__CF?b.__CF.DJS.push(a):"addEventListener"in b?b.addEventListener("load",a,!1):b.attachEvent("onload",a)})(function(){"FB"in b&&"Event"in FB&&"subscribe"in FB.Event&&(FB.Event.subscribe("edge.create",function(a){_gaq.push(["_trackSocial","facebook","like",a])}),FB.Event.subscribe("edge.remove",function(a){_gaq.push(["_trackSocial","facebook","unlike",a])}),FB.Event.subscribe("message.send",function(a){_gaq.push(["_trackSocial","facebook","send",a])}));"twttr"in b&&"events"in twttr&&"bind"in twttr.events&&twttr.events.bind("tweet",function(a){if(a){var b;if(a.target&&a.target.nodeName=="IFRAME")a:{if(a=a.target.src){a=a.split("#")[0].match(/[^?=&]+=([^&]*)?/g);b=0;for(var c;c=a[b];++b)if(c.indexOf("url")===0){b=unescape(c.split("=")[1]);break a}}b=void 0}_gaq.push(["_trackSocial","twitter","tweet",b])}})})})(window);
+/* ]]> */
+</script>
+</head>
+<body>
+<video autoplay loop poster="" id="bgvid">
+<source src="/static/test.mp4" type="video/mp4">
+</video>
+<div id="polina">
+<h1>Joan Of Arc</h1>
+<p>filmed by Victor Fleming 1999</p>
+<p><a href="/joanofarc">Go to History 101 Project</a>
+
+<a href="https://www.youtube.com/watch?v=1qfns_aLrNY">Watch the Movie</a>
+</p>
+
+<p>
+Joan of Arc is born in 1412 in the village of Domrémy in the war zone of Northern France. During her youth she often witnesses the horrors of war, but her spirit is kept high by the legend of the Maiden of Lorraine. This says that a young maiden one day will unite the divided country and lead the people to freedom. 11 years old she starts hearing voices from Saint Catherine and Archangel Michael. Through them she is commissioned by God to go to Prince Charles in Chinon, to convince him to become the King of France and drive the English occupants away. Charles thinks that Joan could be the catalyst that animates his disheartened troops. He commissions her to lead the army together with captain La Hire. After their victory at Orléans Joan participates in the coronation of Charles in Reims. Bishop Cauchon accuses her of heresy, and is relocated to Northern France, where he associates with the English occupants. </p>
+<button>Pause</button>
+</div>
+<script>var video=document.getElementById("bgvid"),pauseButton=document.querySelector("#polina button");function vidFade(){video.classList.add("stopfade");}
+video.addEventListener('ended',function()
+{video.pause();vidFade();},false);pauseButton.addEventListener("click",function(){video.classList.toggle("stopfade");if(video.paused){video.play();pauseButton.innerHTML="Pause";}else{video.pause();pauseButton.innerHTML="Paused";}},false);video.addEventListener('touchstart',function(e){e.preventDefault();video.play();})</script>
+</body>
+</html>
