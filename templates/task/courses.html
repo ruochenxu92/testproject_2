@@ -45,8 +45,9 @@
                 <table class="table table-condensed">
                     <thead>
                     <tr>
+                        <th><a href="/renewcourses" role="button" class="btn btn-success">Renew</a>
+</th>
                         <th><h4>Course</h4></th>
-                        <th>****************</th>
                         <th><h4>Homework</h4></th>
                         <th><h4>due date</h4></th>
                         <th><h4>Are You Finish</h4></th>
@@ -55,10 +56,10 @@
                     <tbody>
                     {% for course in courses %}
                             <tr>
+                                <td></td>
 
                                  <td><a><strong>{{course.courseid}}</strong></a></td>
 
-                                <td></td>
                             <td><a href="{{ course.url }}" role="button" class="btn btn-warning" target="_blank">{{ course.homework }} &raquo;</a>
                                 <a href="{{ course.material }}" role="button" class="btn btn-warning" target="_blank">useful content &raquo;</a>
                             </td>

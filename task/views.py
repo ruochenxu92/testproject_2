@@ -24,7 +24,7 @@ class CourseUpdate(UpdateView):
     model = Course
     fields = ['courseid', 'homework', 'url', 'material', 'finish']
     template_name_suffix = '_update_form'
-    success_url = ''
+    success_url = '../courses'
 
 
 class ArticleUpdate(UpdateView):
@@ -56,6 +56,9 @@ class TaskCreate(CreateView):
     fields = ['name']  #list of field need to fill in
 
     success_url = '../tasks'
+
+
+
 
 class ListDescriptionView(ListView):
     model = Description
@@ -92,6 +95,13 @@ def pinterest(request):
     pictures = PinterestItem.objects.all()
     return render_to_response('pinterest.html',
                              locals(),context_instance=RequestContext(request))
+
+def Renew(request):
+    courses = Course.objects.all()
+    for course in courses:
+        course.finish = False
+        course.save()
+    return HttpResponseRedirect('/courses')
 
 
 

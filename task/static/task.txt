@@ -1,0 +1,2 @@
+1. figure out how to update in the current page, I suggest use the page link, that should be easy
+2. Solr how to use BM25 to do it
