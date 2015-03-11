@@ -6,8 +6,8 @@ from django.views.generic import ListView, CreateView, FormView, UpdateView, Del
 from task.models import Task, Description,cs499Item
 from django.core.urlresolvers import reverse
 from django.contrib import auth
-from .forms import ContactForm, MyRegistrationForm, ArticleForm
-from .models import Article
+from .forms import ContactForm, MyRegistrationForm, ArticleForm, PictureForm, PinterestItem, CourseForm
+from .models import Article,Course
 from django.contrib import messages
 import time, os
 from django.conf import settings
@@ -17,16 +17,24 @@ class TaskUpdate(UpdateView):
     model = Task
     fields = ['name']
     template_name_suffix = '_update_form'
-    success_url = '../tasks'
+    success_url = ''
+
+
+class CourseUpdate(UpdateView):
+    model = Course
+    fields = ['courseid', 'homework', 'url', 'material', 'finish']
+    template_name_suffix = '_update_form'
+    success_url = ''
+
 
 class TaskDelete(DeleteView):
     model = Task
-    success_url = '../tasks'
+    success_url = ''
 
 class ContactView(FormView):
     template_name = 'task/contact.html'
     form_class = ContactForm
-    success_url = '../tasks'
+    success_url = ''
 
     def form_valid(self, form):
         form.send_email()
@@ -34,7 +42,6 @@ class ContactView(FormView):
 
 class ListTasksView(ListView):
     model = Task
-
     queryset = Task.objects.all()
 
 class TaskCreate(CreateView):
@@ -73,6 +80,29 @@ def article(request, article_id = 1):
 
 def cs499item(request, article_id = 1):
     return render_to_response('cs499item.html', {'article': cs499Item.objects.get(id=article_id)})
+
+def pinterest(request):
+    pictures = PinterestItem.objects.all()
+    return render_to_response('pinterest.html',
+                             locals(),context_instance=RequestContext(request))
+
+
+
+def Courses(request):
+    courses = Course.objects.filter(finish=False).order_by('due_date')
+    if request.POST:
+        form = CourseForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.SUCCESS, "You Course was added")
+            return render_to_response('courses.html', locals(), context_instance=RequestContext(request))
+    else:
+        form = CourseForm()
+        args = {}
+        args.update(csrf(request))
+        args['form'] = form
+        return render_to_response('courses.html', locals(), context_instance=RequestContext(request))
+
 
 
 def testvideo(requeset):
@@ -166,6 +196,23 @@ def create(request):
         args.update(csrf(request))
         args['form'] = form
         return render_to_response('create_article.html', args)
+
+
+
+
+def create_picture(request):
+    if request.POST:
+        form = PictureForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.SUCCESS, "You Picture was added")
+            return HttpResponseRedirect('/pinterest')
+    else:
+        form = PictureForm()
+        args = {}
+        args.update(csrf(request))
+        args['form'] = form
+        return render_to_response('create_picture.html', args)
 
 def like_article(request, article_id):
     if article_id:

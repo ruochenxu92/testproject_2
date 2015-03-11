@@ -1,7 +1,8 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from task.models import Article
+from task.models import Article,PinterestItem, Course
+
 
 class ContactForm(forms.Form):
     email = forms.EmailField(required=True)
@@ -32,3 +33,21 @@ class ArticleForm(forms.ModelForm):
     class Meta:
         model = Article
         fields = ('title', 'body',  'pub_date')
+
+
+
+
+class PictureForm(forms.ModelForm):
+
+    class Meta:
+        model = PinterestItem
+        fields = ('title', 'filename',  'course')
+
+
+
+
+class CourseForm(forms.ModelForm):
+
+    class Meta:
+        model = Course
+        fields = ('courseid', 'homework',  'url', 'material', 'finish', 'sememster')

@@ -26,6 +26,24 @@ class Article(models.Model):
     def __unicode__(self):
         return self.title
 
+class Course(models.Model):
+    #user = models.ForeignKey(User)
+    courseid =  models.CharField(max_length=255, default='CS410')
+    homework =  models.CharField(max_length=255, default='hw3')
+    url = models.CharField(max_length=255, default='https://wiki.cites.illinois.edu/wiki/display/timanpub/CS410S15+Schedule')
+    material = models.CharField(max_length=255, default='Your Material Link')
+    due_date = models.CharField(max_length=255, default='Monday')
+    finish = models.BooleanField(default=False)
+    sememster = models.CharField(max_length=255, default='Spring 2015')
+
+
+    def __unicode__(self):
+        return self.courseid
+
+class PinterestItem(models.Model):
+    title = models.CharField(max_length=100, default='')
+    filename = models.CharField(max_length=255, default='')
+    course = models.CharField(max_length=255, default='ST400')
 
 from django.db import models
 from django.contrib.auth.models import User

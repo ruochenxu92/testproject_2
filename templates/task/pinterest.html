@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div id="event-1507" class="panel panel-default relate-calendar-event">
+        <div class="panel-heading">
+            <b>Create Course</b>
+        </div>
+
+        <div class="body">
+            <form action="/create_picture/" method="post" enctype="multipart/form-data">{% csrf_token %}
+                <ul>
+                    {{ form.as_ul }}
+                </ul>
+
+                <input role="button" class="btn btn-primary" type="submit" name="submit" value="Create Article">
+            </form>
+        </div>
+    </div>
+
+
+    {% for picture in pictures %}
+       <div class="panel panel-default" markdown="block">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+          <a data-toggle="collapse" href="#starter-code{{ picture.pk }}">
+            {{ picture.title }}
+            <span style="font-size:x-small">(click to view)</span>
+          </a>
+          </h4>
+        </div>
+        <div id="starter-code{{ picture.pk }}" class="panel-collapse collapse">
+         <div class="panel-body">
+             <img src="/static/pinterest/{{ picture.filename }}" width="1000" height="600" alt=""/>
+         </div>
+        </div>
+      </div>
+    {% endfor %}
+
+{#       <div class="panel panel-default" markdown="block">#}
+{#            <iframe src="http://docs.google.com/gview?url=?dl=0&embedded=true" style="width:100%; height:1000px;" frameborder="0"></iframe>#}
+{#    </div>#}
+{% endblock %}
+

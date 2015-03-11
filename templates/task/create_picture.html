@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+    <div id="event-1507" class="panel panel-default relate-calendar-event">
+        <div class="panel-heading">
+            <b>Create Picture</b>
+        </div>
+
+
+
+
+        <div class="body">
+            <form action="/create_picture/" method="post" enctype="multipart/form-data">{% csrf_token %}
+                <ul>
+                    {{ form.as_ul }}
+                </ul>
+
+                <input role="button" class="btn btn-primary" type="submit" name="submit" value="Create Picture">
+            </form>
+        </div>
+    </div>
+{% endblock %}
