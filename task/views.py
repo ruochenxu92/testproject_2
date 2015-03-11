@@ -13,6 +13,7 @@ import time, os
 from django.conf import settings
 from django.core.mail import send_mail,send_mass_mail
 
+
 class TaskUpdate(UpdateView):
     model = Task
     fields = ['name']
@@ -122,37 +123,43 @@ def Courses(request):
 
 
 
-def testvideo(requeset):
-    return render_to_response('task/testvideo.html')
+def testvideo(request):
+    full_name = request.user.username
+    return render_to_response('task/testvideo.html', locals(), context_instance=RequestContext(request))
 
-def index(requeset):
-    return render_to_response('task/index.html')
+def index(request):
+    full_name =request.user.username
+    return render_to_response('task/index.html', locals(), context_instance=RequestContext(request))
 
-def joanofarc(requeset):
-    return render_to_response('task/HIS101/joanofarc.html', {'articles': Article.objects.all()})
+def joanofarc(request):
+    full_name = request.user.username
+    articles = Article.objects.all()
+    return render_to_response('task/HIS101/joanofarc.html', locals(), context_instance=RequestContext(request))
 
 
-def team(requeset):
-    return render_to_response('task/team.html')
+def team(request):
+    full_name = request.user.username
+    return render_to_response('task/team.html', locals(), context_instance=RequestContext(request))
 
 
 def search_titles1(request):
+    full_name = request.user.username
     if request.method == 'POST':
         search_text = request.POST['search_text']
     else:
         search_text = ''
     articles = Article.objects.filter(title_contains=search_text)
-    return render_to_response('ajax_search.html', {'articles': articles})
+    return render_to_response('ajax_search.html', locals(), context_instance=RequestContext(request))
 
 
 def search_titles(request):
+    full_name = request.user.username
     if request.method == 'POST':
         search_text = request.POST['search_text']
     else:
         search_text = ''
-
     cs499items = cs499Item.objects.filter(title_contains=search_text)
-    return render_to_response('ajax_search.html', {'cs499items':cs499items})
+    return render_to_response('ajax_search.html', locals(), context_instance=RequestContext(request))
 
 
 def login(request):
@@ -167,7 +174,7 @@ def auth_view(request):
     user = auth.authenticate(username=username, password=password)
     if user is not None:
         auth.login(request, user)
-        return HttpResponseRedirect('/accounts/loggedin')
+        return HttpResponseRedirect('/')
     else:
         return HttpResponseRedirect('/accounts/invalid')
 
@@ -177,30 +184,43 @@ def loggedin(request):
     return render_to_response('loggedin.html',
                              locals(),context_instance=RequestContext(request))
 
+
+def profile(request):
+    full_name = request.user.username
+    email = request.user.email
+    return render_to_response('profile.html',
+                             locals(),context_instance=RequestContext(request))
+
+
+
 def invalid_login(request):
-    return render_to_response('invalid_login.html')
+    full_name = request.user.username
+    return render_to_response('invalid_login.html', locals(), context_instance=RequestContext(request))
 
 def logout(request):
     auth.logout(request)
-    return render_to_response('logout.html')
+    return HttpResponseRedirect('/')
 
 def register_user(request):
+    full_name = request.user.username
     if request.method == 'POST':
         form = MyRegistrationForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/accounts/register_success')
+            return HttpResponseRedirect('/accounts/register_success', locals(), context_instance=RequestContext(request))
     else:
         form = MyRegistrationForm()
         args = {}
         args.update(csrf(request))
         args['form'] = form
-        return render_to_response('register.html', args)
+        return render_to_response('register.html', locals(), context_instance=RequestContext(request))
 
 def register_success(request):
-    return render_to_response('register_success.html')
+    full_name = request.user.username
+    return render_to_response('register_success.html', locals(), context_instance=RequestContext(request))
 
 def create(request):
+    full_name = request.user.username
     if request.POST:
         form = ArticleForm(request.POST)
         if form.is_valid():
@@ -212,12 +232,13 @@ def create(request):
         args = {}
         args.update(csrf(request))
         args['form'] = form
-        return render_to_response('create_article.html', args)
+        return render_to_response('create_article.html', locals(), context_instance=RequestContext(request))
 
 
 
 
 def create_picture(request):
+    full_name = request.user.username
     if request.POST:
         form = PictureForm(request.POST)
         if form.is_valid():
@@ -229,9 +250,10 @@ def create_picture(request):
         args = {}
         args.update(csrf(request))
         args['form'] = form
-        return render_to_response('create_picture.html', args)
+        return render_to_response('create_picture.html', locals(), context_instance=RequestContext(request))
 
 def like_article(request, article_id):
+    full_name = request.user.username
     if article_id:
         a = cs499Item.objects.get(id=article_id)
         a.likes += 1
