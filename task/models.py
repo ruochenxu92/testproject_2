@@ -35,7 +35,7 @@ class Course(models.Model):
     due_date = models.CharField(max_length=255, default='Monday')
     finish = models.BooleanField(default=False)
     sememster = models.CharField(max_length=255, default='Spring 2015')
-
+    username = models.CharField(max_length=255, default='xxu46')
 
     def __unicode__(self):
         return self.courseid

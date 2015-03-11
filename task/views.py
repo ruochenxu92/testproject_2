@@ -107,7 +107,8 @@ def Renew(request):
 
 
 def Courses(request):
-    courses = Course.objects.filter(finish=False).order_by('due_date')
+    full_name = request.user.username
+    courses = Course.objects.filter(finish=False, username=full_name).order_by('due_date')
     if request.POST:
         form = CourseForm(request.POST)
         if form.is_valid():
