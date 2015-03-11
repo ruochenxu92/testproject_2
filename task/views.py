@@ -27,6 +27,13 @@ class CourseUpdate(UpdateView):
     success_url = ''
 
 
+class ArticleUpdate(UpdateView):
+    model = Article
+    fields = ['title', 'body']
+    template_name_suffix = '_update_form'
+    success_url = '../joanofarc'
+
+
 class TaskDelete(DeleteView):
     model = Task
     success_url = ''
