@@ -208,7 +208,9 @@ def register_user(request):
         form = MyRegistrationForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/accounts/register_success', locals(), context_instance=RequestContext(request))
+            return HttpResponseRedirect('/accounts/register_success')
+        else:
+            return render_to_response('register.html', locals(), context_instance=RequestContext(request))
     else:
         form = MyRegistrationForm()
         args = {}
