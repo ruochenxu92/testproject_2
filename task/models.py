@@ -4,6 +4,9 @@ from django.contrib.auth.models import User
 from django.utils.encoding import smart_unicode
 import datetime
 
+
+
+
 class Task (models.Model):
     name = models.CharField(max_length=30)
 
