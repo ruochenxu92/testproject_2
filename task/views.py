@@ -105,6 +105,13 @@ def Renew(request):
     return HttpResponseRedirect('/courses')
 
 
+def message(request):
+    full_name = request.user.username
+    return render_to_response('task/Login/message.html', locals(), context_instance=RequestContext(request))
+
+
+
+
 
 def Courses(request):
     full_name = request.user.username
