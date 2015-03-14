@@ -43,8 +43,9 @@
 </head>
 
 <body>
+{% load static %}
 <div class="wrapper">
-{% include 'nav.html' %}
+{% include 'task/Base/nav.html' %}
 {##}
 {#<div class="dropdown">#}
 {#  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">#}
@@ -60,4 +61,4 @@
 {#</div>#}
 {% block content %}
 {% endblock %}
-{% include 'foot.html' %}
+{% include 'task/Base/foot.html' %}

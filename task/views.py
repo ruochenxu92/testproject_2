@@ -40,7 +40,7 @@ class TaskDelete(DeleteView):
     success_url = ''
 
 class ContactView(FormView):
-    template_name = 'task/contact.html'
+    template_name = 'task/Nothing/contact.html'
     form_class = ContactForm
     success_url = ''
 
@@ -87,14 +87,14 @@ class ListArticles(ListView):
     queryset = Article.objects.all()
 
 def article(request, article_id = 1):
-    return render_to_response('article.html', {'article': Article.objects.get(id=article_id)})
+    return render_to_response('task/Articles/article.html', {'article': Article.objects.get(id=article_id)})
 
 def cs499item(request, article_id = 1):
-    return render_to_response('cs499item.html', {'article': cs499Item.objects.get(id=article_id)})
+    return render_to_response('task/CS Paper/cs499item.html', {'article': cs499Item.objects.get(id=article_id)})
 
 def pinterest(request):
     pictures = PinterestItem.objects.all()
-    return render_to_response('pinterest.html',
+    return render_to_response('task/Pinterest/pinterest.html',
                              locals(),context_instance=RequestContext(request))
 
 def Renew(request):
@@ -114,33 +114,33 @@ def Courses(request):
         if form.is_valid():
             form.save()
             messages.add_message(request, messages.SUCCESS, "You Course was added")
-            return render_to_response('courses.html', locals(), context_instance=RequestContext(request))
+            return render_to_response('task/Courses/courses.html', locals(), context_instance=RequestContext(request))
     else:
         form = CourseForm()
         args = {}
         args.update(csrf(request))
         args['form'] = form
-        return render_to_response('courses.html', locals(), context_instance=RequestContext(request))
+        return render_to_response('task/Courses/courses.html', locals(), context_instance=RequestContext(request))
 
 
 
 def testvideo(request):
     full_name = request.user.username
-    return render_to_response('task/testvideo.html', locals(), context_instance=RequestContext(request))
+    return render_to_response('task/Articles/testvideo.html', locals(), context_instance=RequestContext(request))
 
 def index(request):
     full_name =request.user.username
-    return render_to_response('task/index.html', locals(), context_instance=RequestContext(request))
+    return render_to_response('task/Base/index.html', locals(), context_instance=RequestContext(request))
 
 def joanofarc(request):
     full_name = request.user.username
     articles = Article.objects.all()
-    return render_to_response('task/HIS101/joanofarc.html', locals(), context_instance=RequestContext(request))
+    return render_to_response('task/Articles/joanofarc.html', locals(), context_instance=RequestContext(request))
 
 
 def team(request):
     full_name = request.user.username
-    return render_to_response('task/team.html', locals(), context_instance=RequestContext(request))
+    return render_to_response('task/Team/team.html', locals(), context_instance=RequestContext(request))
 
 
 def search_titles1(request):
@@ -150,7 +150,7 @@ def search_titles1(request):
     else:
         search_text = ''
     articles = Article.objects.filter(title_contains=search_text)
-    return render_to_response('ajax_search.html', locals(), context_instance=RequestContext(request))
+    return render_to_response('task/Nothing/ajax_search.html', locals(), context_instance=RequestContext(request))
 
 
 def search_titles(request):
@@ -160,13 +160,13 @@ def search_titles(request):
     else:
         search_text = ''
     cs499items = cs499Item.objects.filter(title_contains=search_text)
-    return render_to_response('ajax_search.html', locals(), context_instance=RequestContext(request))
+    return render_to_response('task/Nothing/ajax_search.html', locals(), context_instance=RequestContext(request))
 
 
 def login(request):
     c = {}
     c.update(csrf(request))
-    return render_to_response('login.html', c)
+    return render_to_response('task/Login/login.html', c)
 
 
 def auth_view(request):
@@ -182,21 +182,18 @@ def auth_view(request):
 
 def loggedin(request):
     full_name = request.user.username
-    return render_to_response('loggedin.html',
+    return render_to_response('task/Login/loggedin.html',
                              locals(),context_instance=RequestContext(request))
-
 
 def profile(request):
     full_name = request.user.username
     email = request.user.email
-    return render_to_response('profile.html',
+    return render_to_response('task/Login/profile.html',
                              locals(),context_instance=RequestContext(request))
-
-
 
 def invalid_login(request):
     full_name = request.user.username
-    return render_to_response('invalid_login.html', locals(), context_instance=RequestContext(request))
+    return render_to_response('task/Login/invalid_login.html', locals(), context_instance=RequestContext(request))
 
 def logout(request):
     auth.logout(request)
@@ -210,17 +207,17 @@ def register_user(request):
             form.save()
             return HttpResponseRedirect('/accounts/register_success')
         else:
-            return render_to_response('register.html', locals(), context_instance=RequestContext(request))
+            return render_to_response('task/Login/register.html', locals(), context_instance=RequestContext(request))
     else:
         form = MyRegistrationForm()
         args = {}
         args.update(csrf(request))
         args['form'] = form
-        return render_to_response('register.html', locals(), context_instance=RequestContext(request))
+        return render_to_response('task/Login/register.html', locals(), context_instance=RequestContext(request))
 
 def register_success(request):
     full_name = request.user.username
-    return render_to_response('register_success.html', locals(), context_instance=RequestContext(request))
+    return render_to_response('task/Login/register_success.html', locals(), context_instance=RequestContext(request))
 
 def create(request):
     full_name = request.user.username
@@ -235,7 +232,7 @@ def create(request):
         args = {}
         args.update(csrf(request))
         args['form'] = form
-        return render_to_response('create_article.html', locals(), context_instance=RequestContext(request))
+        return render_to_response('task/Articles/create_article.html', locals(), context_instance=RequestContext(request))
 
 
 
@@ -253,7 +250,7 @@ def create_picture(request):
         args = {}
         args.update(csrf(request))
         args['form'] = form
-        return render_to_response('create_picture.html', locals(), context_instance=RequestContext(request))
+        return render_to_response('task/Pinterest/create_picture.html', locals(), context_instance=RequestContext(request))
 
 def like_article(request, article_id):
     full_name = request.user.username
@@ -381,7 +378,7 @@ def send_email(request):
         # email = EmailMessage(subject, message, from_email, recipient_list, connection=connection, encoding='utf8').send()
         #
 
-        return render_to_response('register_success.html')
+        return render_to_response('task/Login/register_success.html')
 
 
 
