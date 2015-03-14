@@ -1,0 +1,31 @@
+{% extends 'task/base.html' %}
+
+{% block content%}
+
+    <div class="panel panel-default">
+
+         <div class="panel-heading">
+             <div class="row">
+             <div class="col-md-9">
+             <h1>update your homework status</h1>
+             </div>
+             <div class="col-md-2" style="padding: 12px; border:15px solid transparent; ">
+                <a href="/courses" role="button" class="btn btn-success">Go Back to Courses</a>
+             </div>
+             </div>
+
+         </div>
+
+        <div class="panel-body">
+
+              <form action="" method="post">{% csrf_token %}
+                 {{ form.as_p}}
+                 <input type="submit" value="Update" role="button" class="btn btn-success" width="300px"/>
+             </form>
+
+        </div>
+
+
+    </div>
+
+{% endblock %}
