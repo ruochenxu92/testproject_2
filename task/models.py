@@ -5,8 +5,6 @@ from django.utils.encoding import smart_unicode
 import datetime
 
 
-
-
 class Task (models.Model):
     name = models.CharField(max_length=30)
 
@@ -29,11 +27,13 @@ class Article(models.Model):
     def __unicode__(self):
         return self.title
 
+
 class Message(models.Model):
     sendto = models.CharField(max_length=255, default='friend1, friend2')
     subject = models.CharField(max_length=40, default="No Subject")
     body = models.TextField(default='')
-    attach = models.FileField(upload_to=None, max_length=100)
+    attachment = models.FileField(upload_to=None, max_length=100, default=None, blank=True)
+    time = models.DateTimeField(auto_now_add=True)
     username = models.CharField(max_length=255, default='xxu46')
 
     def __unicode__(self):

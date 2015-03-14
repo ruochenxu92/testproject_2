@@ -3,10 +3,10 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, render_to_response
 from django.template import RequestContext
 from django.views.generic import ListView, CreateView, FormView, UpdateView, DeleteView
-from task.models import Task, Description,cs499Item
+from task.models import Task, Description,cs499Item, Message
 from django.core.urlresolvers import reverse
 from django.contrib import auth
-from .forms import ContactForm, MyRegistrationForm, ArticleForm, PictureForm, PinterestItem, CourseForm
+from .forms import ContactForm, MyRegistrationForm, ArticleForm, PictureForm, PinterestItem, CourseForm, MessageForm
 from .models import Article,Course
 from django.contrib import messages
 import time, os
@@ -27,6 +27,12 @@ class CourseUpdate(UpdateView):
     template_name_suffix = '_update_form'
     success_url = '../courses'
 
+
+class MessageUpdate(UpdateView):
+    model = Course
+    fields = ['sendto', 'subject', 'body', 'attachment']
+    template_name_suffix = '_update_form'
+    success_url = '../message'
 
 class ArticleUpdate(UpdateView):
     model = Article
@@ -104,10 +110,10 @@ def Renew(request):
         course.save()
     return HttpResponseRedirect('/courses')
 
-
-def message(request):
-    full_name = request.user.username
-    return render_to_response('task/Login/message.html', locals(), context_instance=RequestContext(request))
+#
+# def message(request):
+#     full_name = request.user.username
+#     return render_to_response('task/Login/message.html', locals(), context_instance=RequestContext(request))
 
 
 
@@ -128,6 +134,31 @@ def Courses(request):
         args.update(csrf(request))
         args['form'] = form
         return render_to_response('task/Courses/courses.html', locals(), context_instance=RequestContext(request))
+
+def SendMessage(request):
+    full_name = request.user.username
+    my_messsage = Message.objects.all()
+    if request.POST:
+        #sender = form['sendto'].split(',')
+        #form['sendto'] = sender[0]
+        mes = Message(username=full_name)
+        form = MessageForm(request.POST, instance=mes)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.SUCCESS, "You Course was added")
+            return render_to_response('task/message.html', locals(), context_instance=RequestContext(request))
+        return render_to_response('task/message.html', locals(), context_instance=RequestContext(request))
+
+    else:
+        form = MessageForm()
+        args = {}
+        args.update(csrf(request))
+        args['form'] = form
+        return render_to_response('task/message.html', locals(), context_instance=RequestContext(request))
+
+
+
+
 
 
 
@@ -195,6 +226,12 @@ def loggedin(request):
 def profile(request):
     full_name = request.user.username
     email = request.user.email
+    from django.contrib import messages
+    messages.add_message(request, messages.INFO, 'Hello, '+full_name)
+    storage = messages.get_messages(request)
+    for message in storage:
+        print(message)
+
     return render_to_response('task/Login/profile.html',
                              locals(),context_instance=RequestContext(request))
 

@@ -17,9 +17,9 @@
                 </a>
             </h4>
         </div>
-        <div id="starter-code{{ picture.pk }}" class="panel-collapse collapse">
+        <div id="starter-code" class="panel-collapse collapse">
             <div class="panel-body">
-                <form action="/../Login/message/" method="post" enctype="multipart/form-data">{% csrf_token %}
+                <form action="/message/" method="post" enctype="multipart/form-data">{% csrf_token %}
                     <ul>
                         {{ form.as_ul }}
                     </ul>
@@ -44,7 +44,7 @@
                 <table class="table table-condensed">
                     <thead>
                     <tr>
-                        <th><a href="/Login/message" role="button" class="btn btn-success">Refresh</a>
+                        <th><a href="/message/" role="button" class="btn btn-success">Refresh</a>
                         </th>
                         <th><h4>From</h4></th>
                         <th><h4>subject</h4></th>

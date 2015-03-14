@@ -32,7 +32,7 @@ urlpatterns = patterns('',
     #url(r'^his101paper/$', 'task.views.his101paper'),
     url(r'^pinterest/$', 'task.views.pinterest'),
 
-    url(r'^Login/message/$', 'task.views.message'),
+    url(r'^message/$', 'task.views.SendMessage'),
 
     url(r'^profile/$', 'task.views.profile'),
     url(r'^create/$', 'task.views.create'),

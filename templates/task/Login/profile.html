@@ -2,6 +2,7 @@
 
 {% block content %}
 
+
     <style>
         body {
             height: 100%;
@@ -16,24 +17,23 @@
             font-size: 20px
         }
 
-
-        a{
-  text-decoration: none;
-  cursor: auto;
-}
-            .subnav {
-          position: relative;
-          background-color: #565a5c;
-          -webkit-user-select: none;
-          -moz-user-select: none;
-          -ms-user-select: none;
-          user-select: none;
+        a {
+            text-decoration: none;
+            cursor: auto;
         }
 
-    a {
-  background: transparent;
-}
+        .subnav {
+            position: relative;
+            background-color: #565a5c;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
 
+        a {
+            background: transparent;
+        }
 
 
     </style>
@@ -49,159 +49,165 @@
         </div>
         <div class="panel-body">
 
-{##}
-{##}
-{##}
-{#  <ul class="nav pull-right logged-in list-unstyled medium-right-margin">#}
-{#  <li class="user-item pull-left medium-right-margin">#}
-{#    <a class="link-reset"#}
-{#       id="header-avatar-trigger"#}
-{#       href="#">#}
-{#      <div class="media-photo media-round user-profile-image"></div>#}
-{#      <span class="value_name">#}
-{#        User#}
-{#      </span>#}
-{#      <i class="icon icon-caret-down icon-light-gray h5"></i>#}
-{#    </a>#}
-{#    <ul role="tooltip"#}
-{#        class="tooltip tooltip-top-right dropdown-menu list-unstyled header-dropdown"#}
-{#        data-trigger="#header-avatar-trigger"#}
-{#        aria-hidden="true"#}
-{#        data-sticky="true">#}
-{#      <li>#}
-{#        <a href="#"#}
-{#           data-href="/home/dashboard"#}
-{#           rel="nofollow"#}
-{#           class="no-crawl link-reset menu-item item-dashboard">#}
-{#          Dashboard#}
-{#        </a>#}
-{#      </li>#}
-{#      <li class="listings">#}
-{#        <a href="#"#}
-{#           data-href="/rooms"#}
-{#           rel="nofollow"#}
-{#           class="no-crawl link-reset menu-item item-listing">#}
-{#          <span class="singular" style="display: none;">#}
-{#            Your Listing#}
-{#          </span>#}
-{#          <span class="plural">#}
-{#            Your Listings#}
-{#          </span>#}
-{#        </a>#}
-{#      </li>#}
-{#      <li class="reservations" style="display: none;">#}
-{#        <a href="#"#}
-{#           data-href="/my_listings"#}
-{#           rel="nofollow"#}
-{#           class="no-crawl link-reset menu-item item-reservation">#}
-{#           Your Reservations#}
-{#        </a>#}
-{#      </li>#}
-{#      <li>#}
-{#        <a href="#"#}
-{#           data-href="/trips/upcoming"#}
-{#           rel="nofollow"#}
-{#           class="no-crawl link-reset menu-item item-trips">#}
-{#          Your Trips#}
-{#        </a>#}
-{#      </li>#}
-{#      <li>#}
-{#        <a href="#"#}
-{#           data-href="/wishlists/my"#}
-{#           id="wishlists"#}
-{#           class="no-crawl link-reset menu-item item-wishlists">#}
-{#          Wish Lists#}
-{#        </a>#}
-{#      </li>#}
-{#      <li class="groups">#}
-{#        <a href="#"#}
-{#           data-href="/groups"#}
-{#           rel="nofollow"#}
-{#           class="no-crawl link-reset menu-item item-groups">#}
-{#          Groups#}
-{#        </a>#}
-{#      </li>#}
-{#      <li>#}
-{#        <a href="#"#}
-{#           data-href="/invite?r=3"#}
-{#           class="no-crawl link-reset menu-item item-invite-friends">#}
-{#          Invite Friends#}
-{#          <span class="label label-pink label-new">#}
-{#            New#}
-{#          </span>#}
-{#        </a>#}
-{#      </li>#}
-{#      <li>#}
-{#        <a href="#"#}
-{#           data-href="/users/edit"#}
-{#           rel="nofollow"#}
-{#           class="no-crawl link-reset menu-item item-user-edit">#}
-{#          Edit Profile#}
-{#        </a>#}
-{#      </li>#}
-{#      <li>#}
-{#        <a href="#"#}
-{#           data-href="/account"#}
-{#           rel="nofollow"#}
-{#           class="no-crawl link-reset menu-item item-account">#}
-{#          Account#}
-{#        </a>#}
-{#      </li>#}
-{#      <li>#}
-{#        <a href="#"#}
-{#           data-href="/logout"#}
-{#           rel="nofollow"#}
-{#           class="no-crawl link-reset menu-item" id="header-logout">#}
-{#          Log Out#}
-{#        </a>#}
-{#      </li>#}
-{#    </ul>#}
-{#  </li>#}
-{#  <li id="inbox-item" class="inbox-item pull-left">#}
-{#    <a href="#"#}
-{#       data-href="/inbox"#}
-{#       rel="nofollow"#}
-{#       class="no-crawl link-reset inbox-icon">#}
-{#      <i class="alert-count fade text-center">0</i>#}
-{#      <i class="icon icon-envelope icon-gray">#}
-{#        <span class="text-hide hide">#}
-{#          Inbox#}
-{#        </span>#}
-{#      </i>#}
-{#    </a>#}
-{#  </li>#}
-{#</ul>#}
-{##}
-{##}
-{##}
-
-
-
 
             <div class="row">
                 <div class="col-md-2">
                     <ul class="nav nav-pills nav-stacked">
                         <li role="presentation" class="active"><a href="#">Home</a></li>
-                        <li role="presentation"><a href="#profile">Profile</a></li>
-                        <li role="presentation"><a href="../Login/message">Messages</a></li>
-
-
-
-
+                        <li role="presentation"><a href="profile">Profile</a></li>
+                        <li role="presentation"><a href="../Login/message">See your Messages</a></li>
 
                     </ul>
                 </div>
                 <div class="col-md-10">
+
                     <h4><strong>User Name: </strong>{{ full_name }}</h4>
                     <h4><strong>Email: </strong>{{ email }}</h4>
+                    <h4>
+
+                        <strong>
+                           Your message:
+                        </strong>
+                        {% if storage %}
+                            <ul class="messages">
+                                {% for message in storage %}
+                                    {{ message }}<br>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+
+                    </h4>
+
+
                 </div>
-
             </div>
-
-
-
         </div>
 
+        {##}
+        {##}
+        {##}
+        {#  <ul class="nav pull-right logged-in list-unstyled medium-right-margin">#}
+        {#  <li class="user-item pull-left medium-right-margin">#}
+        {#    <a class="link-reset"#}
+        {#       id="header-avatar-trigger"#}
+        {#       href="#">#}
+        {#      <div class="media-photo media-round user-profile-image"></div>#}
+        {#      <span class="value_name">#}
+        {#        User#}
+        {#      </span>#}
+        {#      <i class="icon icon-caret-down icon-light-gray h5"></i>#}
+        {#    </a>#}
+        {#    <ul role="tooltip"#}
+        {#        class="tooltip tooltip-top-right dropdown-menu list-unstyled header-dropdown"#}
+        {#        data-trigger="#header-avatar-trigger"#}
+        {#        aria-hidden="true"#}
+        {#        data-sticky="true">#}
+        {#      <li>#}
+        {#        <a href="#"#}
+        {#           data-href="/home/dashboard"#}
+        {#           rel="nofollow"#}
+        {#           class="no-crawl link-reset menu-item item-dashboard">#}
+        {#          Dashboard#}
+        {#        </a>#}
+        {#      </li>#}
+        {#      <li class="listings">#}
+        {#        <a href="#"#}
+        {#           data-href="/rooms"#}
+        {#           rel="nofollow"#}
+        {#           class="no-crawl link-reset menu-item item-listing">#}
+        {#          <span class="singular" style="display: none;">#}
+        {#            Your Listing#}
+        {#          </span>#}
+        {#          <span class="plural">#}
+        {#            Your Listings#}
+        {#          </span>#}
+        {#        </a>#}
+        {#      </li>#}
+        {#      <li class="reservations" style="display: none;">#}
+        {#        <a href="#"#}
+        {#           data-href="/my_listings"#}
+        {#           rel="nofollow"#}
+        {#           class="no-crawl link-reset menu-item item-reservation">#}
+        {#           Your Reservations#}
+        {#        </a>#}
+        {#      </li>#}
+        {#      <li>#}
+        {#        <a href="#"#}
+        {#           data-href="/trips/upcoming"#}
+        {#           rel="nofollow"#}
+        {#           class="no-crawl link-reset menu-item item-trips">#}
+        {#          Your Trips#}
+        {#        </a>#}
+        {#      </li>#}
+        {#      <li>#}
+        {#        <a href="#"#}
+        {#           data-href="/wishlists/my"#}
+        {#           id="wishlists"#}
+        {#           class="no-crawl link-reset menu-item item-wishlists">#}
+        {#          Wish Lists#}
+        {#        </a>#}
+        {#      </li>#}
+        {#      <li class="groups">#}
+        {#        <a href="#"#}
+        {#           data-href="/groups"#}
+        {#           rel="nofollow"#}
+        {#           class="no-crawl link-reset menu-item item-groups">#}
+        {#          Groups#}
+        {#        </a>#}
+        {#      </li>#}
+        {#      <li>#}
+        {#        <a href="#"#}
+        {#           data-href="/invite?r=3"#}
+        {#           class="no-crawl link-reset menu-item item-invite-friends">#}
+        {#          Invite Friends#}
+        {#          <span class="label label-pink label-new">#}
+        {#            New#}
+        {#          </span>#}
+        {#        </a>#}
+        {#      </li>#}
+        {#      <li>#}
+        {#        <a href="#"#}
+        {#           data-href="/users/edit"#}
+        {#           rel="nofollow"#}
+        {#           class="no-crawl link-reset menu-item item-user-edit">#}
+        {#          Edit Profile#}
+        {#        </a>#}
+        {#      </li>#}
+        {#      <li>#}
+        {#        <a href="#"#}
+        {#           data-href="/account"#}
+        {#           rel="nofollow"#}
+        {#           class="no-crawl link-reset menu-item item-account">#}
+        {#          Account#}
+        {#        </a>#}
+        {#      </li>#}
+        {#      <li>#}
+        {#        <a href="#"#}
+        {#           data-href="/logout"#}
+        {#           rel="nofollow"#}
+        {#           class="no-crawl link-reset menu-item" id="header-logout">#}
+        {#          Log Out#}
+        {#        </a>#}
+        {#      </li>#}
+        {#    </ul>#}
+        {#  </li>#}
+        {#  <li id="inbox-item" class="inbox-item pull-left">#}
+        {#    <a href="#"#}
+        {#       data-href="/inbox"#}
+        {#       rel="nofollow"#}
+        {#       class="no-crawl link-reset inbox-icon">#}
+        {#      <i class="alert-count fade text-center">0</i>#}
+        {#      <i class="icon icon-envelope icon-gray">#}
+        {#        <span class="text-hide hide">#}
+        {#          Inbox#}
+        {#        </span>#}
+        {#      </i>#}
+        {#    </a>#}
+        {#  </li>#}
+        {#</ul>#}
+        {##}
+        {##}
+        {##}
 
 
     </div>

@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from task.models import Article,PinterestItem, Course
+from task.models import Article,PinterestItem, Course, Message
 
 
 class ContactForm(forms.Form):
@@ -51,3 +51,11 @@ class CourseForm(forms.ModelForm):
     class Meta:
         model = Course
         fields = ('courseid', 'homework',  'url', 'material', 'finish', 'sememster')
+
+
+
+class MessageForm(forms.ModelForm):
+
+    class Meta:
+        model = Message
+        fields = ('sendto', 'subject',  'body', 'attachment')

@@ -78,6 +78,7 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
 
 INSTALLED_APPS = (
     'django.contrib.admin',
@@ -91,6 +92,46 @@ INSTALLED_APPS = (
 
     'task',
 )
+#
+#
+# TEMPLATE_CONTEXT_PROCESSORS = (
+#     "django.contrib.auth.context_processors.auth",
+#     "django.core.context_processors.debug",
+#     "django.core.context_processors.i18n",
+#     "django.core.context_processors.media",
+#     "django.core.context_processors.static",
+#     "django.core.context_processors.tz",
+#     "django.contrib.messages.context_processors.messages",
+#     #"context_processors.my_processor",
+#     'django.core.context_processors.request', #activar las variables de session alojadas en el request
+#     )
+# #
+# #
+# #
+# TEMPLATE_CONTEXT_PROCESSORS = (
+#     'django.contrib.auth.context_processors.auth',
+#     'django.core.context_processors.debug',
+#     'django.core.context_processors.i18n',
+#     'django.core.context_processors.media',
+#     'django.contrib.messages.context_processors.messages',
+#     #'context_processors.admin_media_prefix',
+#     'django.core.context_processors.static',
+#     'django.core.context_processors.request',
+#    # 'context_processors.site',
+# )
+#
+#
+#
+TEMPLATE_CONTEXT_PROCESSORS =("django.contrib.auth.context_processors.auth",
+"django.core.context_processors.debug",
+"django.core.context_processors.i18n",
+"django.core.context_processors.media",
+"django.core.context_processors.static",
+"django.core.context_processors.tz",
+"django.contrib.messages.context_processors.messages",
+'django.core.context_processors.request',)
+
+
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -129,7 +170,6 @@ TEMPLATE_DIRS = (
     os.path.join(BASE_DIR,  'templates'),
     os.path.join(BASE_DIR,  'templates/task'),
 )
-
 
 #Xiaomin add following codes
 from sys import path
