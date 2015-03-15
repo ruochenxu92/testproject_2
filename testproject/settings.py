@@ -48,10 +48,11 @@ HAYSTACK_CONNECTIONS = {
         'ENGINE': 'haystack.backends.solr_backend.SolrEngine',
         'URL': 'http://127.0.0.1:8983/solr',
         'INCLUDE_SPELLING':True,
+        'TIMEOUT': 60 * 5,
     },
 }
 HAYSTACK_DEFAULT_OPERATOR = 'OR'
-HAYSTACK_SEARCH_RESULTS_PER_PAGE = 50
+HAYSTACK_SEARCH_RESULTS_PER_PAGE = 20
 
 
 # HAYSTACK_CONNECTIONS = {
