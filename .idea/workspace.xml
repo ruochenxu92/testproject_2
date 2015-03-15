@@ -32,8 +32,8 @@
       <file leaf-file-name="team.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/task/Team/team.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.43711656" vertical-offset="0" max-vertical-offset="720">
-              <caret line="19" column="50" selection-start-line="19" selection-start-column="50" selection-end-line="19" selection-end-column="50" />
+            <state vertical-scroll-proportion="0.6779141" vertical-offset="428" max-vertical-offset="1080">
+              <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -660,7 +660,11 @@
       <created>1426385332559</created>
       <updated>1426385332559</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="team changes">
+      <created>1426396068750</created>
+      <updated>1426396068750</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -747,7 +751,8 @@
     <MESSAGE value="course update bug fix" />
     <MESSAGE value="fix the timeout problem in building solr index" />
     <MESSAGE value="fix the solr problems" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix the solr problems" />
+    <MESSAGE value="team changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="team changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1142,8 +1147,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/task/Team/team.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43711656" vertical-offset="0" max-vertical-offset="720">
-          <caret line="19" column="50" selection-start-line="19" selection-start-column="50" selection-end-line="19" selection-end-column="50" />
+        <state vertical-scroll-proportion="0.6779141" vertical-offset="428" max-vertical-offset="1080">
+          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
           <folding />
         </state>
       </provider>
