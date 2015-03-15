@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 from django.utils.encoding import smart_unicode
 import datetime
 
+from django.utils import timezone
+
 
 class Task (models.Model):
     name = models.CharField(max_length=30)
@@ -29,11 +31,11 @@ class Article(models.Model):
 
 
 class Message(models.Model):
-    sendto = models.CharField(max_length=255, default='friend1, friend2')
+    sendto = models.CharField(max_length=255, default='friend1')
     subject = models.CharField(max_length=40, default="No Subject")
     body = models.TextField(default='')
     attachment = models.FileField(upload_to=None, max_length=100, default=None, blank=True)
-    time = models.DateTimeField(auto_now_add=True)
+    time = models.DateTimeField(default=timezone.now())
     username = models.CharField(max_length=255, default='xxu46')
 
     def __unicode__(self):

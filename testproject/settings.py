@@ -52,8 +52,12 @@ HAYSTACK_CONNECTIONS = {
     },
 }
 HAYSTACK_DEFAULT_OPERATOR = 'OR'
-HAYSTACK_SEARCH_RESULTS_PER_PAGE = 20
+HAYSTACK_SEARCH_RESULTS_PER_PAGE = 10
 
+USE_TZ = True
+
+#os.environ['TZ'] = 'Asia/Shanghai'
+os.environ['TZ'] = 'America/Chicago'
 
 # HAYSTACK_CONNECTIONS = {
 #

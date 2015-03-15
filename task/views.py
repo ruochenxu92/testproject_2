@@ -129,6 +129,11 @@ def Courses(request):
             messages.add_message(request, messages.SUCCESS, "You Course was added")
             return render_to_response('task/Courses/courses.html', locals(), context_instance=RequestContext(request))
     else:
+        if request.GET.get('type', '') == 'delete':
+            id = request.GET.get('id')
+            me = Course.objects.get(pk = id)
+            me.delete()
+
         form = CourseForm()
         args = {}
         args.update(csrf(request))
@@ -137,28 +142,43 @@ def Courses(request):
 
 def SendMessage(request):
     full_name = request.user.username
-    my_messsage = Message.objects.all()
+    my_message = Message.objects.filter(username=full_name).order_by('time')
+    my_message = my_message.reverse()
+
+
+    from django.utils.timezone import localtime
+    # import pytz
+    # est=pytz.timezone('US/Eastern')
+    #
+    # i = 0
+    # for i in range(len(my_message)):
+    #     my_message[i].time.astimezone(est).replace(tzinfo=None)
+    #     print(my_message[i].time)
+
+
+
     if request.POST:
         #sender = form['sendto'].split(',')
         #form['sendto'] = sender[0]
-        mes = Message(username=full_name)
-        form = MessageForm(request.POST, instance=mes)
+        # mes = Message(username=full_name)
+        form = MessageForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.add_message(request, messages.SUCCESS, "You Course was added")
+            messages.add_message(request, messages.SUCCESS, "You Message was added")
+            success = "You Message was added"
             return render_to_response('task/message.html', locals(), context_instance=RequestContext(request))
-        return render_to_response('task/message.html', locals(), context_instance=RequestContext(request))
-
+        #return render_to_response('task/message.html', locals(), context_instance=RequestContext(request))
     else:
+        if request.GET.get('type', '') == 'delete':
+            id = request.GET.get('id')
+            me = Message.objects.get(pk = id)
+            me.delete()
+
         form = MessageForm()
         args = {}
         args.update(csrf(request))
         args['form'] = form
         return render_to_response('task/message.html', locals(), context_instance=RequestContext(request))
-
-
-
-
 
 
 

@@ -7,11 +7,23 @@
         }
     </style>
 
+
+       {% if success %}
+                <div class="alert alert-success" role="alert">
+
+                    {{ success }}
+
+                </div>
+            {% endif %}
+
+
     <div class="panel panel-default" markdown="block">
         <div class="panel-heading">
             <h4 class="panel-title">
+
                 <a data-toggle="collapse" href="#starter-code">
                     <b>Create Message</b>
+
                     <span style="font-size:x-small">(click to view)</span>
 
                 </a>
@@ -25,17 +37,19 @@
                     </ul>
                     <input role="button" class="btn btn-primary" type="submit" name="submit" value="Send">
                 </form>
-
             </div>
         </div>
     </div>
+
+
+
 
 
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <a id="about"></a>
     <div class="panel panel-default relate-calendar-event   ">
         <div class="panel-heading">
-            <h1>Finish Your Homework, {{ full_name }}</h1>
+            <h1>This is your message, {{ full_name }}</h1>
         </div>
 
         <div class="panel-body">
@@ -49,17 +63,20 @@
                         <th><h4>From</h4></th>
                         <th><h4>subject</h4></th>
                         <th><h4>body</h4></th>
-                        <th><h4>attachment</h4></th>
+                        <th><h4>time</h4></th>
                     </tr>
                     </thead>
                     <tbody>
                     {% for message in my_message %}
                         <tr>
-                            <td></td>
+                            <td>
+                                <strong><a role="button" class="btn btn-danger" href="/message?type=delete&id={{ message.pk }}">Delete</a></strong>
+
+                            </td>
                             <td><a><strong>{{ message.username }}</strong></a></td>
                             <td><a><strong>{{ message.subject }}</strong></a></td>
                             <td><a><strong>{{ message.body }}</strong></a></td>
-                            <td><a><strong>{{ message.attachment }}</strong></a></td>
+                            <td><a><strong>{{ message.time }}</strong></a></td>
                         </tr>
                     {% endfor %}
                     </tbody>
