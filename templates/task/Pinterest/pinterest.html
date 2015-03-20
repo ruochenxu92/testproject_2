@@ -1,28 +1,23 @@
 {% extends 'task/Base/base.html' %}
-
 {% block content %}
-
-
     {% for picture in pictures %}
        <div class="panel panel-default" markdown="block">
         <div class="panel-heading">
           <h4 class="panel-title">
-          <a data-toggle="collapse" href="#starter-code{{ picture.pk }}">
+          <a data-toggle="collapse" href="#starter-code{{ picture.pk }}" >
             {{ picture.title }}
             <span style="font-size:x-small">(click to view)</span>
           </a>
           </h4>
         </div>
-        <div id="starter-code{{ picture.pk }}" class="panel-collapse collapse">
+        <div id="starter-code{{ picture.pk }}" class="panel-collapse collapse" >
          <div class="panel-body">
              <img src="/static/pinterest/{{ picture.filename }}" width="1000" height="600" alt=""/>
          </div>
         </div>
       </div>
     {% endfor %}
-
-{#       <div class="panel panel-default" markdown="block">#}
-{#            <iframe src="http://docs.google.com/gview?url=?dl=0&embedded=true" style="width:100%; height:1000px;" frameborder="0"></iframe>#}
-{#    </div>#}
 {% endblock %}
+
+
 

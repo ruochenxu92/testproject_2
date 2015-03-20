@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b134d495-3925-4606-80d1-b102796508cd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/task/Team/team.html" afterPath="$PROJECT_DIR$/templates/task/Team/team.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/task/Base/base.html" afterPath="$PROJECT_DIR$/templates/task/Base/base.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/task/Base/foot.html" afterPath="$PROJECT_DIR$/templates/task/Base/foot.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/task/Pinterest/pinterest.html" afterPath="$PROJECT_DIR$/templates/task/Pinterest/pinterest.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="testproject.iws" />
@@ -212,7 +214,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Team" />
+              <option name="myItemId" value="Pinterest" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -657,7 +659,11 @@
       <created>1426892321811</created>
       <updated>1426892321811</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="team changes">
+      <created>1426892455381</created>
+      <updated>1426892455381</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="ToolWindowManager">
