@@ -27,7 +27,7 @@ import os
 os.environ['DJANGO_SETTINGS_MODULE'] = 'testproject.settings'
 
 
-DOWNLOAD_DELAY = 1
+DOWNLOAD_DELAY = 0.5
 
 
 import os

@@ -7,24 +7,16 @@ import os
 from superqq.items import PaperItem
 import datetime
 import json
-
-
-
 from superqq.utils import utils
-
 tool = utils()
 def getUrls():
-    path = os.path.abspath('/Users/Xiaomin/Desktop/testproject/superqq/cs499.json')
-    jf = open(path)
-    data = json.load(jf)
     urls = []
-    for url in data:
-        urls.append('http://arxiv.org' + url['name'])
+    urls += ['http://arxiv.org/list/cs/14?skip=0&show=16277']
     return urls
 
 class CS499Spider(Spider):
     hostname = 'http://arxiv.org'
-    name = 'cs499'
+    name = 'cs499month'
     #allowed_domains = ['http://cs.illinois.edu']
     start_urls = getUrls()
 
@@ -33,10 +25,8 @@ class CS499Spider(Spider):
 
     def parse(self, response):
         i = 1
-
         # print response.xpath('//*[@id="dlpage"]/dl/dd[1]/div/div[1]/text()').extract()[0]
         prefix = 'http://arxiv.org'
-
         for sel in response.xpath('//*[@id="dlpage"]/dl[1]/dt'):
             item = PaperItem()
             item['urllink'] = prefix + sel.xpath('span/a[1]/@href').extract()[0]
