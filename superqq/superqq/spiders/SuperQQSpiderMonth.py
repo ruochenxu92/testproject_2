@@ -16,7 +16,7 @@ def getUrls():
 
 class CS499Spider(Spider):
     hostname = 'http://arxiv.org'
-    name = 'cs499month'
+    name = 'cs499year'
     #allowed_domains = ['http://cs.illinois.edu']
     start_urls = getUrls()
 
@@ -25,7 +25,6 @@ class CS499Spider(Spider):
 
     def parse(self, response):
         i = 1
-        # print response.xpath('//*[@id="dlpage"]/dl/dd[1]/div/div[1]/text()').extract()[0]
         prefix = 'http://arxiv.org'
         for sel in response.xpath('//*[@id="dlpage"]/dl[1]/dt'):
             item = PaperItem()

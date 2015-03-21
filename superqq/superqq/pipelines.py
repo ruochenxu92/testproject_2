@@ -15,7 +15,6 @@ class SuperqqPipeline(object):
             return item
 
         elif item.__class__.__name__ == 'PaperItem':
-
             if len(cs499Item.objects.filter(title=item['title'])) == 0:
                 item.save()
             return item

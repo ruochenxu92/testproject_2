@@ -19,21 +19,19 @@ ITEM_PIPELINES = {
     #'superqq.pipelines.JsonWriterPipeline': 2,
     'superqq.pipelines.SuperqqPipeline': 1,
 }
-
-import sys
-sys.path.append('/Users/Xiaomin/Desktop/testproject')
-
 import os
+import sys
+
+
+from os.path import expanduser
+home = expanduser("~")
+
+project = home + '/testproject'
 os.environ['DJANGO_SETTINGS_MODULE'] = 'testproject.settings'
-
-
-DOWNLOAD_DELAY = 0.5
-
-
-import os
-import sys
+DOWNLOAD_DELAY = 120
+project_setting = home + '/testproject/testproject.settings'
 import django
-path = os.path.abspath('/Users/Xiaomin/Desktop/testproject/testproject.settings')
+path = os.path.abspath(project_setting)
 sys.path.append(os.path.abspath(os.path.join(path, os.path.pardir)))
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "testproject.settings")
 django.setup()
