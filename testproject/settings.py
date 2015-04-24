@@ -177,11 +177,11 @@ TEMPLATE_DIRS = (
 )
 
 #Xiaomin add following codes
-from sys import path
-c = os.getcwd()
-os.chdir(str(c)+'/superqq')
-d = os.getcwd()
-path.append(d)
-os.chdir(c)
-d = os.getcwd()
-os.environ['SCRAPY_SETTINGS_MODULE'] = 'superqq.settings'
+# from sys import path
+# c = os.getcwd()
+# os.chdir(str(c)+'/superqq')
+# d = os.getcwd()
+# path.append(d)
+# os.chdir(c)
+# d = os.getcwd()
+# os.environ['SCRAPY_SETTINGS_MODULE'] = 'superqq.settings'

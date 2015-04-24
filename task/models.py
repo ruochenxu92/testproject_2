@@ -162,6 +162,26 @@ class Page(models.Model):
         ordering = ('author',)
 
 
+class Person(models.Model):
+    name = models.CharField(max_length=80, default='')
+    coauthors = models.CharField(max_length=255, default='')
+
+    def __unicode__(self):
+        return smart_unicode(self.name)
+    class Meta:
+        ordering = ('name',)
+
+
+class Recommendation(models.Model):
+    customer = models.CharField(max_length=255, default='') #target users
+    date = models.DateTimeField(blank=True, null=True)# auto_now=False, auto_now_add=False
+    recommends = models.ForeignKey(Person, blank=True, null=True)
+    def __unicode__(self):
+        return smart_unicode(self.papers)
+
+    class Meta:
+        ordering = ('customer',)
+
 class cs499Item(models.Model):
     urllink = models.CharField(max_length=80,  default='')
     pdflink = models.CharField(max_length=80,  default='')
@@ -172,6 +192,8 @@ class cs499Item(models.Model):
     date = models.DateTimeField(blank=True, null=True)# auto_now=False, auto_now_add=False
     category = models.CharField(max_length=200, default='')
     likes = models.IntegerField(default=0)
+    papers = models.ForeignKey(Recommendation, blank=True, null=True)
+    my_paper = models.ForeignKey(Person, blank=True, null=True)
 
     def __unicode__(self):
         return smart_unicode(self.title)
@@ -214,27 +236,8 @@ class Faculty(models.Model):
         ordering = ('field',)
 
 
-class Recommendation(models.Model):
-    customer = models.CharField(max_length=255, default='') #target users
-    date = models.DateTimeField(blank=True, null=True)# auto_now=False, auto_now_add=False
-    papers = models.ForeignKey(cs499Item, blank=True, null=True)
 
-    def __unicode__(self):
-        return smart_unicode(self.papers)
-
-    class Meta:
-        ordering = ('customer',)
-
-
-
-
-class Person(models.Model):
-    name = models.CharField(max_length=80, default='')
-    recommends = models.ForeignKey(Recommendation, blank=True, null=True)
-    coauthors = models.CharField(max_length=255, default='')
-    my_paper = models.ForeignKey(cs499Item, blank=True, null=True)
-
-    def __unicode__(self):
-        return smart_unicode(self.name)
-    class Meta:
-        ordering = ('name',)
+#
+#
+#
+#
