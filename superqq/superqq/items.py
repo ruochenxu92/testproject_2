@@ -25,3 +25,6 @@ class ScholarItem(DjangoItem):
 class FacultyItem(DjangoItem):
     django_model = Faculty
 
+
+
+

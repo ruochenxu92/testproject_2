@@ -27,6 +27,10 @@ from os.path import expanduser
 home = expanduser("~")
 
 project = home + '/testproject'
+sys.path.append(project)
+
+
+
 os.environ['DJANGO_SETTINGS_MODULE'] = 'testproject.settings'
 DOWNLOAD_DELAY = 120
 project_setting = home + '/testproject/testproject.settings'

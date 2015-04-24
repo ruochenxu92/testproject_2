@@ -7,6 +7,12 @@ import datetime
 from django.utils import timezone
 
 
+
+
+
+
+
+
 class Task (models.Model):
     name = models.CharField(max_length=30)
 
@@ -207,3 +213,28 @@ class Faculty(models.Model):
     class Meta:
         ordering = ('field',)
 
+
+class Recommendation(models.Model):
+    customer = models.CharField(max_length=255, default='') #target users
+    date = models.DateTimeField(blank=True, null=True)# auto_now=False, auto_now_add=False
+    papers = models.ForeignKey(cs499Item, blank=True, null=True)
+
+    def __unicode__(self):
+        return smart_unicode(self.papers)
+
+    class Meta:
+        ordering = ('customer',)
+
+
+
+
+class Person(models.Model):
+    name = models.CharField(max_length=80, default='')
+    recommends = models.ForeignKey(Recommendation, blank=True, null=True)
+    coauthors = models.CharField(max_length=255, default='')
+    my_paper = models.ForeignKey(cs499Item, blank=True, null=True)
+
+    def __unicode__(self):
+        return smart_unicode(self.name)
+    class Meta:
+        ordering = ('name',)
